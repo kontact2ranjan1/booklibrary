@@ -1,0 +1,28 @@
+server:
+  port: 8082    #port number
+ 
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
+ 
+spring:
+  application:
+    name: subscription-service    #service name
+
+
+book-service:
+  ribbon:
+    eureka:
+      enabled: true
+ 
+logging:
+  level:
+    com.fis.booklibrary.casestudy: DEBUG

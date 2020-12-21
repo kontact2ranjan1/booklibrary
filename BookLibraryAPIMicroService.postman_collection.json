@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "4e8ceb0b-637c-4c0b-847b-99c34da72df1",
+		"name": "BookLibraryAPIMicroService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "BookServiceGET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SubscriptionServiceGET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SubscriptionServicePOST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"subscriberName\": \"Sailesh\",\r\n        \"dateSubscriber\": \"26-APR-2020\",\r\n        \"dateReturned\": null,\r\n        \"bookId\": \"B4232\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8082/subscriptions",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"subscriptions"
+					]
+				},
+				"description": "POST SUBSCRIPTIONS"
+			},
+			"response": []
+		},
+		{
+			"name": "APIGATEWAY-SUBSCRIPTION-SERVICE-ZUUL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/subscription-service/subscriptions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"subscription-service",
+						"subscriptions"
+					]
+				},
+				"description": "API GATEWAY - SUBSCRIPTION-SERVICE"
+			},
+			"response": []
+		},
+		{
+			"name": "APIGATEWAY-BOOK-SERVICE-ZUUL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/book-service/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"book-service",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "APIGATEWAY-SUBSCRIPTION-SERVICE-ZUUL-POST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"subscriberName\": \"Sailesh\",\r\n        \"dateSubscriber\": \"26-APR-2020\",\r\n        \"dateReturned\": null,\r\n        \"bookId\": \"B4232\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/subscription-service/subscriptions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"subscription-service",
+						"subscriptions"
+					]
+				},
+				"description": "API GATEWAY- SUBSCRIPTION POST"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
